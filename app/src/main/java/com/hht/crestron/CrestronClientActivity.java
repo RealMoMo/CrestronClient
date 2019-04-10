@@ -11,6 +11,15 @@ import android.widget.TextView;
 import com.hht.crestron.LocalSocketRunnable;
 import com.hht.crestron.R;
 
+
+/**
+ * @author Realmo
+ * @version 1.0.0
+ * @name CrestronClientActivity
+ * @email momo.weiye@gmail.com
+ * @time 2019/4/9 19:16
+ * @describe
+ */
 public class CrestronClientActivity extends Activity {
 
     LocalSocketRunnable client;

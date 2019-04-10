@@ -11,13 +11,16 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 /**
- * 通过LocalSocket实现
- * @author Administrator
- *
+ * @author Realmo
+ * @version 1.0.0
+ * @name LocalSocketRunnable
+ * @email momo.weiye@gmail.com
+ * @time 2019/4/9 19:36
+ * @describe
  */
 public class LocalSocketRunnable implements Runnable{
     private static final String TAG="LocalSocketRunnable";
-    private static final String NAME="com.repackaging.localsocket";
+    private static final String ADDRESS ="crestron.socket";
     private int timeout=30000;
     LocalSocket client;
     PrintWriter os;
@@ -42,7 +45,7 @@ public class LocalSocketRunnable implements Runnable{
     public void run() {
         client=new LocalSocket();
         try {
-            client.connect(new LocalSocketAddress(NAME));//连接服务器
+            client.connect(new LocalSocketAddress(ADDRESS));//连接服务器
             Log.i(TAG, "Client=======连接服务器成功=========");
             client.setSoTimeout(timeout);
             os=new PrintWriter(client.getOutputStream());
