@@ -45,7 +45,7 @@ public class LocalSocketRunnable implements Runnable{
     public void run() {
         client=new LocalSocket();
         try {
-            client.connect(new LocalSocketAddress(ADDRESS));//连接服务器
+            client.connect(new LocalSocketAddress(ADDRESS, LocalSocketAddress.Namespace.RESERVED));//连接服务器
             Log.i(TAG, "Client=======连接服务器成功=========");
             client.setSoTimeout(timeout);
             os=new PrintWriter(client.getOutputStream());
