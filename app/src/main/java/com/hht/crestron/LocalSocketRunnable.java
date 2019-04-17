@@ -20,7 +20,7 @@ import android.util.Log;
  */
 public class LocalSocketRunnable implements Runnable{
     private static final String TAG="LocalSocketRunnable";
-    private static final String ADDRESS ="crestron.socket";
+    private static final String ADDRESS ="hvcrestrond ";
     private int timeout=30000;
     LocalSocket client;
     PrintWriter os;
