@@ -71,6 +71,8 @@ public class CrestronClientActivity extends Activity implements View.OnClickList
     protected void onDestroy() {
         super.onDestroy();
         client.close();
+        handler.removeCallbacksAndMessages(null);
+        handler = null;
     }
 
     @Override

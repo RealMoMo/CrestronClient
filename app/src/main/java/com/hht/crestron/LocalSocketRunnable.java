@@ -10,6 +10,9 @@ import android.net.LocalSocketAddress;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import com.hht.crestron.bean.CrestronReceiveBean;
+
 /**
  * @author Realmo
  * @version 1.0.0
@@ -20,13 +23,14 @@ import android.util.Log;
  */
 public class LocalSocketRunnable implements Runnable{
     private static final String TAG="LocalSocketRunnable";
-    private static final String ADDRESS ="hvcrestrond ";
+    private static final String ADDRESS ="hvcrestrond";
     private int timeout=30000;
-    LocalSocket client;
-    PrintWriter os;
-    BufferedReader is;
+    private LocalSocket client;
+    private PrintWriter os;
+    private BufferedReader is;
 
-    Handler handler;
+    private Handler handler;
+    private CrestronReceiveBean crestronReceiveBean = new CrestronReceiveBean();
 
     public LocalSocketRunnable(Handler handler){
         this.handler=handler;
@@ -59,11 +63,12 @@ public class LocalSocketRunnable implements Runnable{
         while(true){
             try {
                 result=is.readLine();
-                Log.i(TAG, "客户端接到的数据为："+result);
+                parseCrestronContent(result);
+                Log.i(TAG, "客户端接到的数据为："+ crestronReceiveBean.toString());
                 //将数据带回acitvity显示
                 Message msg=handler.obtainMessage();
                 msg.arg1=0x12;
-                msg.obj=result;
+                msg.obj= crestronReceiveBean.toString();
                 handler.sendMessage(msg);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
@@ -90,4 +95,19 @@ public class LocalSocketRunnable implements Runnable{
         }
 
     }
+
+    public void parseCrestronContent(String content){
+        //String content = "eType:100,joinNumber:5,joinValue:0";
+        content = content.replace(":",",");
+        String[] split = content.split(",");
+        if(split.length == 6){
+            crestronReceiveBean.seteType(split[1]);
+            crestronReceiveBean.setJoinNumber(split[3]);
+            crestronReceiveBean.setJoinValue(split[5]);
+        }
+
+
+    }
+
+
 }
