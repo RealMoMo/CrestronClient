@@ -5,13 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+import android.content.Context;
 import android.net.LocalSocket;
 import android.net.LocalSocketAddress;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.hht.crestron.bean.CrestronReceiveBean;
+import com.hht.crestron.bean.CrestronBean;
+import com.hht.crestron.utils.CrestronCommandManager;
+import com.hht.crestron.utils.DefaultLogger;
 
 /**
  * @author Realmo
@@ -22,7 +25,7 @@ import com.hht.crestron.bean.CrestronReceiveBean;
  * @describe
  */
 public class LocalSocketRunnable implements Runnable{
-    private static final String TAG="LocalSocketRunnable";
+
     private static final String ADDRESS ="hvcrestrond";
     private int timeout=30000;
     private LocalSocket client;
@@ -30,11 +33,12 @@ public class LocalSocketRunnable implements Runnable{
     private BufferedReader is;
 
     private Handler handler;
-    private CrestronReceiveBean crestronReceiveBean = new CrestronReceiveBean();
+    private CrestronBean crestronBean = new CrestronBean();
+    private CrestronCommandManager crestronCommandManager;
 
-    public LocalSocketRunnable(Handler handler){
+    public LocalSocketRunnable(Handler handler, Context context){
         this.handler=handler;
-
+        crestronCommandManager = CrestronCommandManager.getInstance(context);
     }
 
     //发数据
@@ -49,8 +53,8 @@ public class LocalSocketRunnable implements Runnable{
     public void run() {
         client=new LocalSocket();
         try {
-            client.connect(new LocalSocketAddress(ADDRESS, LocalSocketAddress.Namespace.RESERVED));//连接服务器
-            Log.i(TAG, "Client=======连接服务器成功=========");
+            client.connect(new LocalSocketAddress(ADDRESS, LocalSocketAddress.Namespace.RESERVED));
+            DefaultLogger.verbose("Connect succes");
             client.setSoTimeout(timeout);
             os=new PrintWriter(client.getOutputStream());
             is=new BufferedReader(new InputStreamReader(client.getInputStream()));
@@ -64,12 +68,18 @@ public class LocalSocketRunnable implements Runnable{
             try {
                 result=is.readLine();
                 parseCrestronContent(result);
-                Log.i(TAG, "客户端接到的数据为："+ crestronReceiveBean.toString());
-                //将数据带回acitvity显示
+                DefaultLogger.verbose("from server data:"+ crestronBean.toString());
+
                 Message msg=handler.obtainMessage();
                 msg.arg1=0x12;
-                msg.obj= crestronReceiveBean.toString();
+                msg.obj= crestronBean.toString();
                 handler.sendMessage(msg);
+
+                //TODO test do something
+                crestronCommandManager.doCrestronCommand(crestronBean.getJoinNumber(),crestronBean.getJoinValue());
+                //TODO test send data to server
+                send(crestronBean.getSuccesResponse());
+
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -101,9 +111,9 @@ public class LocalSocketRunnable implements Runnable{
         content = content.replace(":",",");
         String[] split = content.split(",");
         if(split.length == 6){
-            crestronReceiveBean.seteType(split[1]);
-            crestronReceiveBean.setJoinNumber(split[3]);
-            crestronReceiveBean.setJoinValue(split[5]);
+            crestronBean.seteType(split[1]);
+            crestronBean.setJoinNumber(split[3]);
+            crestronBean.setJoinValue(split[5]);
         }
 
 

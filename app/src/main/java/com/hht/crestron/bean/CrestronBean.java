@@ -1,5 +1,7 @@
 package com.hht.crestron.bean;
 
+import com.hht.crestron.utils.DefaultLogger;
+
 /**
  * @author Realmo
  * @version 1.0.0
@@ -8,28 +10,27 @@ package com.hht.crestron.bean;
  * @time 2019/4/18 13:49
  * @describe
  */
-public class CrestronReceiveBean {
+public class CrestronBean {
 
     /**
      * data format:
         eType:100,joinNumber:5,joinValue:0
-        eType:102,joinNumber:5075,joinValue:HDMI 6eType:100,joinNumber:5075,joinValue:0
      */
     private int eType;
     private int joinNumber;
     private String joinValue;
 
 
-    public CrestronReceiveBean() {
+    public CrestronBean() {
     }
 
-    public CrestronReceiveBean(int eType, int joinNumber, String joinValue) {
+    public CrestronBean(int eType, int joinNumber, String joinValue) {
         this.eType = eType;
         this.joinNumber = joinNumber;
         this.joinValue = joinValue;
     }
 
-    public CrestronReceiveBean(String[] data){
+    public CrestronBean(String[] data){
         this.eType = Integer.parseInt(data[0]);
         this.joinNumber = Integer.parseInt(data[1]);
         this.joinValue = data[2];
@@ -67,9 +68,19 @@ public class CrestronReceiveBean {
         this.joinValue = joinValue;
     }
 
+
+    public String getSuccesResponse(){
+        DefaultLogger.debug("Ack:"+eType);
+        return "Ack:"+eType;
+    }
+
+    public String getFailResponse(){
+        return "Ack:"+(eType-100);
+    }
+
     @Override
     public String toString() {
-        return "CrestronReceiveBean{" +
+        return "CrestronBean{" +
                 "eType=" + eType +
                 ", joinNumber=" + joinNumber +
                 ", joinValue='" + joinValue + '\'' +

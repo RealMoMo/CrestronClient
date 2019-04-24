@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.hht.crestron.LocalSocketRunnable;
 import com.hht.crestron.R;
+import com.hht.sdk.client.APIManager;
 
 
 /**
@@ -51,11 +52,13 @@ public class CrestronClientActivity extends Activity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
 
+        APIManager.connectionService(getApplicationContext());
+
         et_clientSend=(EditText) findViewById(R.id.et_clientSend);
         tv_showReceiveDataClient=(TextView) findViewById(R.id.tv_showReceiveDataClient);
         btn_send = findViewById(R.id.btn_send);
         btn_send.setOnClickListener(this);
-        client=new LocalSocketRunnable(handler);
+        client=new LocalSocketRunnable(handler,this);
         new Thread(client).start();
 
 
@@ -73,6 +76,9 @@ public class CrestronClientActivity extends Activity implements View.OnClickList
         client.close();
         handler.removeCallbacksAndMessages(null);
         handler = null;
+
+
+        APIManager.disconnectService(this.getApplicationContext());
     }
 
     @Override
