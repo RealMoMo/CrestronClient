@@ -29,20 +29,20 @@ public class DefaultLogger {
     }
 
 
-    public static void verbose(@NonNull String message){
-        verbose(TAG,message);
+    public static void verbose(@NonNull String message) {
+        verbose(TAG, message);
     }
 
     public static void verbose(@NonNull String tag, @NonNull String message) {
 
-            StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            Log.v(tag, message + getExtInfo(stackTraceElement));
+        StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
+        Log.v(tag, message + getExtInfo(stackTraceElement));
 
     }
 
 
     public static void debug(@NonNull String message) {
-            debug(TAG,message);
+        debug(TAG, message);
 
     }
 
@@ -55,7 +55,7 @@ public class DefaultLogger {
 
 
     public static void info(@NonNull String message) {
-        info(TAG,message);
+        info(TAG, message);
     }
 
 
@@ -67,7 +67,7 @@ public class DefaultLogger {
     }
 
     public static void warning(@NonNull String message) {
-        warning(TAG,message);
+        warning(TAG, message);
     }
 
 
@@ -80,7 +80,7 @@ public class DefaultLogger {
 
 
     public static void error(@NonNull String message) {
-        error(TAG,message);
+        error(TAG, message);
     }
 
 
@@ -102,6 +102,18 @@ public class DefaultLogger {
 
     public static boolean isMonitorMode() {
         return isMonitorMode;
+    }
+
+
+    public static String getExtInfo(StackTraceElement[] stackTrace) {
+
+        StringBuilder sb = new StringBuilder();
+        for (StackTraceElement element : stackTrace) {
+            sb.append("    at ").append(getExtInfo(element));
+            sb.append("\n");
+        }
+        return sb.toString();
+
     }
 
 

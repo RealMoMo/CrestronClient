@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.hht.crestron.LocalSocketRunnable;
 import com.hht.crestron.R;
+import com.hht.crestron.utils.CrestronThreadPool;
 import com.hht.sdk.client.APIManager;
 
 
@@ -47,6 +48,8 @@ public class CrestronClientActivity extends Activity implements View.OnClickList
         }
     });
 
+    private CrestronThreadPool threadPool;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,9 +62,10 @@ public class CrestronClientActivity extends Activity implements View.OnClickList
         btn_send = findViewById(R.id.btn_send);
         btn_send.setOnClickListener(this);
         client=new LocalSocketRunnable(handler,this);
-        new Thread(client).start();
+        //new Thread(client).start();
 
-
+        threadPool = CrestronThreadPool.getInstance();
+        threadPool.execute(client);
     }
 
 
