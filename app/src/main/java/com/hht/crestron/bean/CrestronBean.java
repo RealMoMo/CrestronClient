@@ -11,7 +11,11 @@ import com.hht.crestron.utils.DefaultLogger;
  * @describe
  */
 public class CrestronBean {
-
+    /**
+     * eType: 100 数字数据 joinNumber(int)对应大屏数字化控制资源,joninValue(boolean 0/1)
+     *        101 模拟数据 joinNumber(int)对应大屏模拟化控制资源,joninValue(int)
+     *        102 串行数据 joinNumber(int)对应大屏串行资源，joinValue(String)
+     */
     /**
      * data format:
         eType:100,joinNumber:5,joinValue:0

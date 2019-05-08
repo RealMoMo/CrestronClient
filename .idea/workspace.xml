@@ -8,10 +8,11 @@
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="CrestronClient" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc87a036-ee24-4701-b69a-0cfd818d30b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
@@ -58,6 +59,20 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CrestronClient" type="f1a62948:ProjectNode" />
+                <item name=":app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="install" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CrestronClient" type="f1a62948:ProjectNode" />
+                <item name=":app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -69,42 +84,50 @@
     <session id="-1529615092">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.85" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="2" />
-          <entry key="gradle" value="6" />
-          <entry key="java" value="27" />
-          <entry key="xml" value="4" />
+          <entry key="class" value="3" />
+          <entry key="gitignore" value="1" />
+          <entry key="gradle" value="11" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="67" />
+          <entry key="xml" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="2" />
-          <entry key="Groovy" value="6" />
-          <entry key="JAVA" value="27" />
-          <entry key="XML" value="4" />
+          <entry key="CLASS" value="3" />
+          <entry key="Groovy" value="11" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="67" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="XML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gradle" value="4" />
-          <entry key="java" value="1158" />
-          <entry key="xml" value="31" />
+          <entry key="gradle" value="146" />
+          <entry key="java" value="3157" />
+          <entry key="xml" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="1158" />
-          <entry key="XML" value="31" />
+          <entry key="Groovy" value="146" />
+          <entry key="JAVA" value="3157" />
+          <entry key="XML" value="69" />
         </counts>
       </usages-collector>
     </session>
@@ -112,10 +135,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrestronCommandManager.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/service/CrestronClientService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="853">
-              <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
+              <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,62 +147,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/bean/CrestronBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-              <folding>
-                <element signature="e#484#502#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/CrestronClientActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/LocalSocketRunnable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="80" column="45" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
+            <state relative-caret-position="367">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/bean/CrestronBean.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/LocalSocketRunnable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="87" column="5" lean-forward="true" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
+            <state relative-caret-position="162">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/DefaultLogger.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrestronCommandManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="2230">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
               <folding>
-                <element signature="e#747#748#0" expanded="true" />
-                <element signature="e#783#784#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -198,6 +189,8 @@
     <findStrings>
       <find>brigh</find>
       <find>displayed</find>
+      <find>linearlayout_factory_otheroption_adb</find>
+      <find>handler</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,21 +202,29 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/bean/CrestronResponseBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/bean/CrestronReceiveBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/Constant.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/UrsaInfoViewHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrashHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/EncryptionHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/DefaultPoolExecutor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/DefaultLogger.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrestronCommandManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrestronThreadPool.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/CrestronClientActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/LocalSocketRunnable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/CrestronClientApplication.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/receiver/BootReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/service/CrestronClientService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/bean/CrestronBean.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/LocalSocketRunnable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrestronCommandManager.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="904" />
-    <option name="height" value="876" />
+    <option name="x" value="4" />
+    <option name="width" value="851" />
+    <option name="height" value="843" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -233,9 +234,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,6 +275,15 @@
               <item name="outputs" type="462c0819:PsiDirectoryNode" />
               <item name="apk" type="462c0819:PsiDirectoryNode" />
               <item name="debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CrestronClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CrestronClient" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
+              <item name="apk" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CrestronClient" type="b2602c69:ProjectViewProjectNode" />
@@ -357,6 +364,30 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="hht" type="462c0819:PsiDirectoryNode" />
               <item name="crestron" type="462c0819:PsiDirectoryNode" />
+              <item name="receiver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CrestronClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CrestronClient" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="hht" type="462c0819:PsiDirectoryNode" />
+              <item name="crestron" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CrestronClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CrestronClient" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="hht" type="462c0819:PsiDirectoryNode" />
+              <item name="crestron" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -368,22 +399,27 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="ActivityManager&#9;PSI&#9;JAVA://android.app.ActivityManager&#10;keyevent&#9;PSI&#9;JAVA://android.view.KeyEvent" />
+    <property name="SearchEverywhereHistoryKey" value="executor&#9;PSI&#9;JAVA://java.util.concurrent.Executors&#10;threadpool&#9;PSI&#9;JAVA://java.util.concurrent.ThreadPoolExecutor&#10;threadpool &#9;PSI&#9;JAVA://sun.nio.ch.ThreadPool&#10;ActivityManager&#9;PSI&#9;JAVA://android.app.ActivityManager&#10;keyevent&#9;PSI&#9;JAVA://android.view.KeyEvent" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="192.168.45.59:5555" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../oversea_util/LockScreen" />
+    <property name="device.picker.selection" value="192.168.45.38:5555" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../msd6a828.7_app/AutoUpdate" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\project_code\public_app_oversea\CrestronClient\app\libs" />
+      <recent name="D:\project_code\public_app_oversea\CrestronClient" />
       <recent name="D:\project_code\public_app_oversea\CrestronClient\app\src\main\java\com\hht\crestron\utils" />
+      <recent name="D:\project_code\public_app_oversea\CrestronClient\app\src\main\java\com\hht" />
+      <recent name="D:\project_code\public_app_oversea\CrestronClient\app\libs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -398,7 +434,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [assemble]">
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -497,6 +533,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="D:/project_code/public_app_oversea/CrestronClient/app [assembleRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assembleRelease" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="D:/project_code/public_app_oversea/CrestronClient/app [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -515,6 +569,42 @@
       </ExternalSystemSettings>
       <method v="2" />
     </configuration>
+    <configuration name="D:/project_code/public_app_oversea/CrestronClient/app [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="D:/project_code/public_app_oversea/CrestronClient/app [installRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="installRelease" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <properties />
@@ -526,9 +616,15 @@
     <list>
       <item itemvalue="Android App.app" />
       <item itemvalue="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [assemble]" />
+      <item itemvalue="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [assembleRelease]" />
+      <item itemvalue="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [installRelease]" />
+      <item itemvalue="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [build]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [build]" />
+        <item itemvalue="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [installRelease]" />
+        <item itemvalue="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [assembleRelease]" />
         <item itemvalue="Gradle.D:/project_code/public_app_oversea/CrestronClient/app [assemble]" />
       </list>
     </recent_temporary>
@@ -548,25 +644,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5006974" side_tool="true" weight="0.22043702" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49930266" visible="true" weight="0.22043702" />
-      <window_info id="Structure" order="2" sideWeight="0.5006974" side_tool="true" weight="0.22043702" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49790794" visible="true" weight="0.21979435" />
+      <window_info id="Structure" order="2" sideWeight="0.50209206" side_tool="true" weight="0.22043702" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.37656903" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="1" visible="true" weight="0.6973501" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32914925" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.68619245" />
       <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Android Profiler" order="3" />
+      <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="4" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32914925" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" weight="0.27437326" />
+      <window_info anchor="bottom" id="Build" order="9" weight="0.24965133" />
       <window_info anchor="bottom" id="Find" order="10" weight="0.32914925" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -641,13 +738,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/UrsaInfoViewHolder.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrashHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="118" column="19" lean-forward="true" selection-start-line="118" selection-start-column="19" selection-end-line="118" selection-end-column="19" />
+          <folding>
+            <element signature="e#3679#3731#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/EncryptionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4293" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/jre/lib/rt.jar!/sun/nio/ch/ThreadPool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/DefaultPoolExecutor.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/concurrent/LinkedBlockingQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="249" column="10" selection-start-line="249" selection-start-column="10" selection-end-line="249" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/concurrent/Executors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="171" column="23" selection-start-line="171" selection-start-column="23" selection-end-line="171" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="1196" column="11" selection-start-line="1196" selection-start-column="11" selection-end-line="1196" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/util/concurrent/ThreadPoolExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7668">
+          <caret line="338" column="13" selection-start-line="338" selection-start-column="13" selection-end-line="338" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/DefaultLogger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="43">
+          <caret line="16" column="49" lean-forward="true" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
           <folding>
-            <element signature="e#747#748#0" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/CrestronClientApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrestronThreadPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/receiver/BootReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -655,25 +837,15 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-          <folding>
-            <element signature="e#484#502#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="243">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrestronCommandManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="853">
-          <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
+        <state relative-caret-position="-227">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -682,22 +854,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/CrestronClientActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="1647">
+          <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-635" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/bean/CrestronBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/utils/CrestronCommandManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2230">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/service/CrestronClientService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="853">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/LocalSocketRunnable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="80" column="45" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hht/crestron/bean/CrestronBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="87" column="5" lean-forward="true" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
+        <state relative-caret-position="162">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

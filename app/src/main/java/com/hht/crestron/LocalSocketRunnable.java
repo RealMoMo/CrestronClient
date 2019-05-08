@@ -10,7 +10,7 @@ import android.net.LocalSocket;
 import android.net.LocalSocketAddress;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+
 
 import com.hht.crestron.bean.CrestronBean;
 import com.hht.crestron.utils.CrestronCommandManager;
@@ -41,6 +41,10 @@ public class LocalSocketRunnable implements Runnable{
         crestronCommandManager = CrestronCommandManager.getInstance(context);
     }
 
+    public LocalSocketRunnable(Context context){
+        crestronCommandManager = CrestronCommandManager.getInstance(context);
+    }
+
     //发数据
     public void send(String data){
         if (os!=null) {
@@ -67,17 +71,17 @@ public class LocalSocketRunnable implements Runnable{
         while(true){
             try {
                 result=is.readLine();
+                DefaultLogger.verbose("from server raw data:"+ result);
                 parseCrestronContent(result);
-                DefaultLogger.verbose("from server data:"+ crestronBean.toString());
-
-                Message msg=handler.obtainMessage();
-                msg.arg1=0x12;
-                msg.obj= crestronBean.toString();
-                handler.sendMessage(msg);
-
-                //TODO test do something
-                crestronCommandManager.doCrestronCommand(crestronBean.getJoinNumber(),crestronBean.getJoinValue());
-                //TODO test send data to server
+                DefaultLogger.verbose("from server parse data:"+ crestronBean.toString());
+                if(handler !=null){
+                    Message msg=handler.obtainMessage();
+                    msg.arg1=0x12;
+                    msg.obj= crestronBean.toString();
+                    handler.sendMessage(msg);
+                }
+                crestronCommandManager.doCrestronCommand(crestronBean);
+                //reponse data to server
                 send(crestronBean.getSuccesResponse());
 
             } catch (IOException e) {

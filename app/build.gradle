@@ -6,16 +6,30 @@ android {
         applicationId "com.hht.crestron"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 6
-        versionName "1.0.5"
+        versionCode 8
+        versionName "1.0.62"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+   
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+           
         }
+       
     }
+
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "CrestrnoClient_${buildType.name}_${defaultConfig.versionName}.apk"
+        }
+
+    }
+
 }
 
 dependencies {
