@@ -54,10 +54,10 @@ public class CrestronCommandManager {
     public boolean isForward(CrestronBean bean){
         DefaultLogger.verbose("isForward:" + bean.toString());
         switch (bean.geteType()) {
-            case ETYPE_SIMULATION_DATA: {
+            case ETYPE_SERIAL_DATA: {
                 return bean.getJoinNumber() == JOIN_NUMBER_FORWARE;
             }
-            case ETYPE_SERIAL_DATA:
+            case ETYPE_SIMULATION_DATA:
             case ETYPE_DIGITAL_DATA:
             default: {
                 return false;
