@@ -1,1 +1,1 @@
-include ':app', ':settinglib'
+include ':settinglib', ':crestronserivce'

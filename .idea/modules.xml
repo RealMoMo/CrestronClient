@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CrestronClient.iml" filepath="$PROJECT_DIR$/CrestronClient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crestronserivce/crestronserivce.iml" filepath="$PROJECT_DIR$/crestronserivce/crestronserivce.iml" />
       <module fileurl="file://$PROJECT_DIR$/settinglib/settinglib.iml" filepath="$PROJECT_DIR$/settinglib/settinglib.iml" />
     </modules>
   </component>
