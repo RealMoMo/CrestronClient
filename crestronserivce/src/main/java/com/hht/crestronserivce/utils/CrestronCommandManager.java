@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.hht.crestronserivce.bean.CrestronBean;
 import com.hht.setting.lib.HHTDeviceManager;
-import com.hht.setting.lib.impl.HHTDeviceCallBackImpl;
 
 /**
  * @author Realmo
@@ -13,7 +12,7 @@ import com.hht.setting.lib.impl.HHTDeviceCallBackImpl;
  * @name CrestronClient
  * @email momo.weiye@gmail.com
  * @time 2019/4/10 9:36
- * @describe Collection Crestron Command
+ * @describe deal crestron command
  */
 public class CrestronCommandManager {
 
@@ -30,18 +29,22 @@ public class CrestronCommandManager {
     public static final int ETYPE_SERIAL_DATA = 102;
 
 
-    public static CrestronCommandManager mInstance;
+    private static CrestronCommandManager mInstance;
 
-    //TODO
+
     private HHTDeviceManager hhtDeviceManager;
 
     private CrestronCommandManager(Context context) {
-        hhtDeviceManager = new HHTDeviceManager(context, new HHTDeviceCallBackImpl());
+        hhtDeviceManager = new HHTDeviceManager(context.getApplicationContext(), null);
     }
 
     public static CrestronCommandManager getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new CrestronCommandManager(context);
+            synchronized (CrestronCommandManager.class){
+                if(mInstance == null){
+                    mInstance = new CrestronCommandManager(context);
+                }
+            }
         }
         return mInstance;
     }
@@ -52,7 +55,7 @@ public class CrestronCommandManager {
      * @return need forward content
      */
     public boolean isForward(CrestronBean bean){
-        DefaultLogger.verbose("isForward:" + bean.toString());
+        DefaultLogger.debug("isForward:" + bean.toString());
         switch (bean.geteType()) {
             case ETYPE_SERIAL_DATA: {
                 return bean.getJoinNumber() == JOIN_NUMBER_FORWARE;
@@ -80,7 +83,7 @@ public class CrestronCommandManager {
      * @param bean
      */
     public void doCrestronCommand(CrestronBean bean) {
-        DefaultLogger.verbose("doCrestronCommand data:" + bean.toString());
+        DefaultLogger.debug("doCrestronCommand data:" + bean.toString());
         switch (bean.geteType()) {
             case ETYPE_DIGITAL_DATA: {
                 doDigitalCommand(bean);
@@ -103,7 +106,7 @@ public class CrestronCommandManager {
 
 
     private void doSimulationCommand(CrestronBean bean) {
-        DefaultLogger.verbose("doSimulationCommand");
+        DefaultLogger.debug("doSimulationCommand");
         switch (bean.getJoinNumber()) {
             case JOIN_NUMBER_VOLUME: {
                 //set volume
@@ -125,7 +128,7 @@ public class CrestronCommandManager {
 
 
     private void doSerialCommand(CrestronBean bean) {
-        DefaultLogger.verbose("doSerialCommand");
+        DefaultLogger.debug("doSerialCommand");
         switch (bean.getJoinNumber()) {
             default:{
 
@@ -136,7 +139,7 @@ public class CrestronCommandManager {
 
 
     private void doDigitalCommand(CrestronBean bean) {
-        DefaultLogger.verbose("doDigitalCommand");
+        DefaultLogger.debug("doDigitalCommand");
         switch (bean.getJoinNumber()) {
             default:{
 
@@ -144,6 +147,7 @@ public class CrestronCommandManager {
         }
 
     }
+
 
 
 }

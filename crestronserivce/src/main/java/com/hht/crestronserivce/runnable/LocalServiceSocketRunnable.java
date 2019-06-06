@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.LocalServerSocket;
 import android.net.LocalSocket;
 
+import com.hht.crestronserivce.bean.SyncStautsBean;
+import com.hht.crestronserivce.utils.CrestronDeviceManager;
 import com.hht.crestronserivce.utils.CrestronThreadPool;
 import com.hht.crestronserivce.utils.DefaultLogger;
 
@@ -19,7 +21,7 @@ import java.util.ArrayList;
  * @time 2019/4/9 19:36
  * @describe
  */
-public class LocalServiceSocketRunnable implements Runnable, LocalClientSocketRunnable.Status {
+public class LocalServiceSocketRunnable implements Runnable, LocalClientSocketRunnable.Status{
 
     private static final String ADDRESS ="hvcrestrond-socket";
 
@@ -30,12 +32,14 @@ public class LocalServiceSocketRunnable implements Runnable, LocalClientSocketRu
 
     private ArrayList<LocalSocket> clients;
     private ArrayList<LocalClientSocketRunnable> clientRunnables;
+    private CrestronDeviceManager crestronDeviceManager;
 
 
     public LocalServiceSocketRunnable(Context context){
         this.context = context.getApplicationContext();
         clients = new ArrayList<>(2);
         clientRunnables = new ArrayList<>(2);
+        crestronDeviceManager = CrestronDeviceManager.getInstance(context);
     }
 
 
@@ -49,7 +53,7 @@ public class LocalServiceSocketRunnable implements Runnable, LocalClientSocketRu
             e.printStackTrace();
             DefaultLogger.error("LocalServerSocket instance failed");
         }
-        DefaultLogger.verbose("LocalServerSocket instance success");
+        DefaultLogger.debug("LocalServerSocket instance success");
         while (true){
             try {
                 LocalSocket localSocket = serverSocket.accept();
@@ -59,8 +63,8 @@ public class LocalServiceSocketRunnable implements Runnable, LocalClientSocketRu
                     clients.add(localSocket);
                     clientRunnables.add(clientRunnable);
 
-                    DefaultLogger.verbose("client count:"+clients.size());
-                    DefaultLogger.verbose("client runnable count:"+clientRunnables.size());
+                    DefaultLogger.debug("client count:"+clients.size());
+                    DefaultLogger.debug("client runnable count:"+clientRunnables.size());
                     CrestronThreadPool.getInstance().execute(clientRunnable);
 
                 }
@@ -85,28 +89,37 @@ public class LocalServiceSocketRunnable implements Runnable, LocalClientSocketRu
 
 
     @Override
-    public void disConnect(LocalSocket client, LocalClientSocketRunnable task) {
+    public void connected(LocalSocket client, LocalClientSocketRunnable task) {
+        //send sync data to client
+        SyncStautsBean syncStautsBean = new SyncStautsBean();
+        syncStautsBean.setBrightValue(crestronDeviceManager.getBright());
+        syncStautsBean.setVolumeValue(crestronDeviceManager.getVolume());
+        task.send(syncStautsBean.getSyncBrightInfo());
+        task.send(syncStautsBean.getSyncVolumeInfo());
+
+    }
+
+    @Override
+    public void disConnected(LocalSocket client, LocalClientSocketRunnable task) {
         if(clients.remove(client)){
             DefaultLogger.verbose("remove useless client success");
         }else{
-            DefaultLogger.verbose("can not find useless client");
+            DefaultLogger.warning("can not find useless client");
         }
 
         if(clientRunnables.remove(task)){
             DefaultLogger.verbose("remove useless runnable success");
         }else{
-            DefaultLogger.verbose("can not find useless runnable");
+            DefaultLogger.warning("can not find useless runnable");
         }
 
-
-        DefaultLogger.verbose("thread pool count after :"+CrestronThreadPool.getInstance().getActiveCount());
     }
 
     @Override
     public void forward(String data, LocalSocket client,LocalClientSocketRunnable task) {
         int index = clientRunnables.indexOf(task);
         if(index == -1){
-            DefaultLogger.debug("forward index == -1");
+            DefaultLogger.warning("forward data can not find other client");
             return;
         }
         for (int i = 0; i <clientRunnables.size(); i++) {
@@ -115,6 +128,6 @@ public class LocalServiceSocketRunnable implements Runnable, LocalClientSocketRu
             }
             clientRunnables.get(i).send(data);
         }
-        DefaultLogger.debug("forward:"+data);
+
     }
 }

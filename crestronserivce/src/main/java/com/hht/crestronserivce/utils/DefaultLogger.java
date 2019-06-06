@@ -85,10 +85,9 @@ public class DefaultLogger {
 
 
     public static void error(@NonNull String tag, @NonNull String message) {
-        if (isShowLog) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
             Log.e(tag, message + getExtInfo(stackTraceElement));
-        }
+
     }
 
 
