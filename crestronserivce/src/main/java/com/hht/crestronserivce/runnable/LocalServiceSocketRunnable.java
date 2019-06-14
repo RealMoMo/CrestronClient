@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.LocalServerSocket;
 import android.net.LocalSocket;
 
-import com.hht.crestronserivce.bean.SyncStautsBean;
+import com.hht.crestronserivce.bean.CrestronBean;
 import com.hht.crestronserivce.utils.CrestronDeviceManager;
 import com.hht.crestronserivce.utils.CrestronThreadPool;
 import com.hht.crestronserivce.utils.DefaultLogger;
@@ -91,7 +91,7 @@ public class LocalServiceSocketRunnable implements Runnable, LocalClientSocketRu
     @Override
     public void connected(LocalSocket client, LocalClientSocketRunnable task) {
         //send sync data to client
-        SyncStautsBean syncStautsBean = new SyncStautsBean();
+        CrestronBean syncStautsBean = new CrestronBean();
         syncStautsBean.setBrightValue(crestronDeviceManager.getBright());
         syncStautsBean.setVolumeValue(crestronDeviceManager.getVolume());
         task.send(syncStautsBean.getSyncBrightInfo());

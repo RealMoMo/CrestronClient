@@ -1,6 +1,7 @@
 package com.hht.crestronserivce.bean;
 
 
+import com.hht.crestronserivce.utils.CrestronCommandManager;
 import com.hht.crestronserivce.utils.DefaultLogger;
 
 /**
@@ -74,14 +75,14 @@ public class CrestronBean {
     }
 
 
-    public String getSuccesResponse(){
-        DefaultLogger.debug("Ack:"+eType);
-        return "Ack:"+eType;
-    }
-
-    public String getFailResponse(){
-        return "Ack:"+(eType-100);
-    }
+//    public String getSuccesResponse(){
+//        DefaultLogger.debug("Ack:"+eType);
+//        return "Ack:"+eType;
+//    }
+//
+//    public String getFailResponse(){
+//        return "Ack:"+(eType-100);
+//    }
 
     @Override
     public String toString() {
@@ -90,5 +91,59 @@ public class CrestronBean {
                 ", joinNumber=" + joinNumber +
                 ", joinValue='" + joinValue + '\'' +
                 '}';
+    }
+
+
+    //TODO test sync data
+    private int brightValue;
+    private int volumeValue;
+
+    private static final String SYNC="SYNC:";
+    private static final String SEPARATE = ",";
+
+    public int getBrightValue() {
+        return brightValue;
+    }
+
+    public void setBrightValue(int brightValue) {
+        this.brightValue = brightValue;
+    }
+
+    public int getVolumeValue() {
+        return volumeValue;
+    }
+
+    public void setVolumeValue(int volumeValue) {
+        this.volumeValue = volumeValue;
+    }
+
+    public String getSyncVolumeInfo(){
+        return getSyncInfo(CrestronCommandManager.ETYPE_SIMULATION_DATA, CrestronCommandManager.JOIN_NUMBER_VOLUME,volumeValue);
+    }
+
+    public String getSyncBrightInfo(){
+        return getSyncInfo(CrestronCommandManager.ETYPE_SIMULATION_DATA, CrestronCommandManager.JOIN_NUMBER_BRIGHT,brightValue);
+    }
+
+    private String getSyncInfo(int eType,int joinNumber,Object joinValue ){
+        StringBuilder info = new StringBuilder();
+        info.append(SYNC)
+                .append(eType)
+                .append(SEPARATE)
+                .append(joinNumber)
+                .append(SEPARATE)
+                .append(joinValue);
+        return info.toString();
+    }
+
+    public String getReplyInfo(){
+        StringBuilder info = new StringBuilder();
+        info.append(SYNC)
+                .append(eType)
+                .append(SEPARATE)
+                .append(joinNumber)
+                .append(SEPARATE)
+                .append(joinValue);
+        return info.toString();
     }
 }
