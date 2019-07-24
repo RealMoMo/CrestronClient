@@ -4,11 +4,18 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 
+import com.hht.crestronserivce.bean.event.EmergencyMessageEvent;
 import com.hht.crestronserivce.runnable.LocalServiceSocketRunnable;
 import com.hht.crestronserivce.utils.CrestronThreadPool;
+import com.hht.crestronserivce.utils.ToastUtils;
 import com.hht.sdk.client.APIManager;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * @author Realmo
@@ -36,6 +43,8 @@ public class CrestronService extends Service {
         APIManager.connectionService(getApplicationContext());
         serviceSocketRunnable = new LocalServiceSocketRunnable(this);
         CrestronThreadPool.getInstance().execute(serviceSocketRunnable);
+
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -50,5 +59,11 @@ public class CrestronService extends Service {
         serviceSocketRunnable.close();
 
         APIManager.disconnectService(getApplicationContext());
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getEmergencyMessageEvent(EmergencyMessageEvent event){
+        ToastUtils.toast(this,event.getMessage(), Toast.LENGTH_SHORT);
     }
 }

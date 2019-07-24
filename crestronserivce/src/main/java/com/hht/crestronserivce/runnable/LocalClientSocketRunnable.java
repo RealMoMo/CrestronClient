@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 
 import com.hht.crestronserivce.bean.CrestronBean;
+import com.hht.crestronserivce.bean.CrestronSyncBean;
 import com.hht.crestronserivce.utils.CrestronDeviceManager;
 import com.hht.crestronserivce.utils.CrestronCommandManager;
 import com.hht.crestronserivce.utils.DefaultLogger;
@@ -33,7 +34,8 @@ public class LocalClientSocketRunnable implements Runnable, HHTDeviceCallBack {
     private BufferedReader is;
 
 
-    private CrestronBean crestronBean = new CrestronBean();
+    private CrestronBean crestronBean;
+    private CrestronSyncBean syncBean;
     private CrestronCommandManager crestronCommandManager;
     private CrestronDeviceManager<LocalClientSocketRunnable> crestronDeviceManager;
     private Status mStatus;
@@ -53,8 +55,8 @@ public class LocalClientSocketRunnable implements Runnable, HHTDeviceCallBack {
         if(selfChange){
            return;
         }
-            crestronBean.setVolumeValue(value);
-            send(crestronBean.getSyncVolumeInfo());
+        syncBean.setVolumeValue(value);
+            send(syncBean.getSyncVolumeInfo());
             DefaultLogger.debug("client onVolumeChange");
 
 
@@ -65,8 +67,8 @@ public class LocalClientSocketRunnable implements Runnable, HHTDeviceCallBack {
         if(selfChange){
             return;
         }
-        crestronBean.setBrightValue(value);
-        send(crestronBean.getSyncBrightInfo());
+        syncBean.setBrightValue(value);
+        send(syncBean.getSyncBrightInfo());
         DefaultLogger.debug("client onBrightnessChange");
     }
 
@@ -108,6 +110,8 @@ public class LocalClientSocketRunnable implements Runnable, HHTDeviceCallBack {
         }
         crestronCommandManager = CrestronCommandManager.getInstance(context);
         crestronDeviceManager = CrestronDeviceManager.getInstance(context);
+        crestronBean = new CrestronBean();
+        syncBean = new CrestronSyncBean(context);
         crestronDeviceManager.registerDeviceCallBack(this);
 
     }
@@ -144,7 +148,7 @@ public class LocalClientSocketRunnable implements Runnable, HHTDeviceCallBack {
                     parseCrestronContent(result);
                     DefaultLogger.debug("from client parse data:"+ crestronBean.toString());
                     selfChange = true;
-                    crestronCommandManager.doCrestronCommand(crestronBean);
+                    crestronCommandManager.doCrestronCommand(crestronBean,this);
                     mStatus.forward(crestronBean.getReplyInfo(),mClient,this);
                     DefaultLogger.debug("selfReply:"+selfReply );
                     if(selfReply){
@@ -152,17 +156,6 @@ public class LocalClientSocketRunnable implements Runnable, HHTDeviceCallBack {
                     }
                     selfChange = false;
                 }
-
-
-
-//                if(crestronCommandManager.isForward(crestronBean)){
-//                    mStatus.forward(crestronCommandManager.getForwardContent(crestronBean),mClient,this);
-//                }else{
-//                    crestronCommandManager.doCrestronCommand(crestronBean);
-//                    send(crestronBean.getSuccesResponse());
-//                }
-
-
 
             } catch (IOException e) {
                 // TODO Auto-generated catch block
@@ -179,9 +172,6 @@ public class LocalClientSocketRunnable implements Runnable, HHTDeviceCallBack {
      * close local socket res
      */
     public void close(){
-        DefaultLogger.debug("111："+(mStatus == null));
-        DefaultLogger.debug("222："+(mClient == null));
-        DefaultLogger.debug("333："+(this == null));
         if(mStatus!=null){
             mStatus.disConnected(mClient,this);
             mStatus = null;
